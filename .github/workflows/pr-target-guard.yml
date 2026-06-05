@@ -1,0 +1,29 @@
+name: PR Target Guard
+
+# Enforces the branching strategy: only `dev` or `hotfix/*` may open a PR into `main`.
+# All feature/fix work goes through `dev` first.
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    name: guard
+    runs-on: ubuntu-latest
+    env:
+      # Untrusted input — never interpolate directly into the shell. Quote on use.
+      HEAD_REF: ${{ github.head_ref }}
+    steps:
+      - name: Only dev or hotfix/* may target main
+        run: |
+          echo "PR source branch: '$HEAD_REF' -> base: main"
+          if [ "$HEAD_REF" = "dev" ] || [ "${HEAD_REF#hotfix/}" != "$HEAD_REF" ]; then
+            echo "::notice::Allowed source branch '$HEAD_REF' for a PR into main."
+          else
+            echo "::error::PRs into 'main' may only come from 'dev' or 'hotfix/*'. Open this PR against 'dev' instead."
+            exit 1
+          fi

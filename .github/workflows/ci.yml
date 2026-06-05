@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, dev]
+  push:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install ruff
+        run: pip install ruff
+      - name: Syntax check (py_compile)
+        run: |
+          shopt -s nullglob
+          files=(tools/*.py *.py)
+          if [ ${#files[@]} -gt 0 ]; then python -m py_compile "${files[@]}"; fi
+      - name: Ruff (real-error subset)
+        run: ruff check tools/ --select=E9,F63,F7,F82 --output-format=github
+
+  wiki-lint:
+    name: wiki-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Wiki leakage + broken-link lint
+        run: python tools/wiki_lint.py
