@@ -1,6 +1,6 @@
 # gAIOS — a generic AI Operating System blueprint
 
-Clone this folder, run `/setup`, and turn Claude Code into **your** personal AI Operating System — a second brain + Chief of Staff that holds your context, structures your work, drafts in your voice, and runs reliable workflows.
+Clone this folder, run `/setup`, and turn **Claude Code or Codex** into **your** personal AI Operating System — a second brain + Chief of Staff that holds your context, structures your work, drafts in your voice, and runs reliable workflows.
 
 It's the open, customizable skeleton: **fork it for any role, company, or domain.** Nothing here is tied to one business.
 
@@ -8,9 +8,11 @@ It's the open, customizable skeleton: **fork it for any role, company, or domain
 
 ## Quick start
 1. **Clone** this folder to your machine.
-2. **Open it in Claude Code** and run **`/setup`**.
+2. **Open it in Claude Code or Codex** and run **`/setup`** (in Codex: invoke the `setup` skill or just ask it to "run setup").
 3. Answer the guided interview (identity, voice, priorities, stack, team, guardrails). It fills `CLAUDE.md`, `context/`, `references/voice.md`, and `connections.md`.
 4. Try the first prompt: *"what should I focus on this week?"*
+
+> Runtime compatibility (Claude Code · Codex · others) is summarized in [Compatibility](#compatibility) below.
 
 ---
 
@@ -37,6 +39,7 @@ It's the open, customizable skeleton: **fork it for any role, company, or domain
 ## Structure
 ```
 CLAUDE.md            ← the operating manual (filled by /setup)
+AGENTS.md            ← Codex / cross-tool runtime bootstrap (mirrors CLAUDE.md's rules)
 context/             ← about you, the business, the team, priorities
 wiki/  · raw/        ← second brain (wiki committed; raw git-ignored)
 projects/            ← active workstreams
@@ -48,6 +51,7 @@ brand-assets/        ← CI/CD template (tokens + preview)
 connections.md       ← registry of systems the AIOS can reach
 decisions/log.md     ← append-only decision record
 .claude/skills/      ← /setup, /structure, /wiki, /workflow, /experiment, /exec-cockpit, /onboard, /audit, /level-up
+.codex/skills/       ← symlink → .claude/skills (so Codex discovers the same skills)
 ```
 
 See `EXPANSIONS.md` for what to add as you grow.
@@ -56,6 +60,20 @@ See `EXPANSIONS.md` for what to add as you grow.
 
 ## Customize for your domain
 The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the generic defaults unchanged for a regulated business.
+
+## Compatibility
+
+gAIOS runs on any agentic coding tool that reads a project-instructions file. **Claude Code is first-class; Codex / Codex CLI is supported** via `AGENTS.md`.
+
+| Runtime | Reads | gAIOS workflows (skills) | Status |
+|---------|-------|--------------------------|--------|
+| **Claude Code** | `CLAUDE.md` | Native slash skills (`/setup`, `/structure`, …) in `.claude/skills/` | ✅ First-class |
+| **Codex / Codex CLI** | `AGENTS.md` → points it to `CLAUDE.md` + `context/` | Auto-discovered from `.codex/skills` (symlink → `.claude/skills`), or invoke by name | ✅ Supported |
+| **Other agents** (Cursor, Gemini CLI, Copilot, …) | `AGENTS.md` / `CLAUDE.md` | Ask for a workflow by name; the agent reads the matching `.claude/skills/*/SKILL.md` or `references/sops/` | ⚠️ Works via instructions |
+
+**Using gAIOS in Codex:** open the repo in Codex CLI — it loads `AGENTS.md` automatically, which directs it to `CLAUDE.md` and `context/` and restates the hard guardrails. Project skills load from `.codex/skills` (a symlink to `.claude/skills`); on Windows without symlink support, the agent reads `.claude/skills/` directly as instructed in `AGENTS.md`. Configure MCP servers in `~/.codex/config.toml` and keep secrets in `.env`. Details: [`AGENTS.md`](AGENTS.md).
+
+> One source of truth: `CLAUDE.md` holds the canonical, `/setup`-filled content; `AGENTS.md` mirrors its rules for other runtimes and defers to it on any conflict.
 
 ## License & attribution
 gAIOS is **© 2026 Alireza Rezvani**, MIT-licensed (see `LICENSE`). It is inspired by Nate Herk's AIS-OS starter kit and his Three Ms / Four Cs frameworks, which are credited as inspiration (see `NOTICE`); those framework names are Nate Herk's trademarks. Everything in this repo — the WAT integration, second-brain wiki, autoresearch harness, dynamic workflows, Operating discipline, and the tools — is Alireza Rezvani's work. Please keep the inspiration credit to Nate Herk.
