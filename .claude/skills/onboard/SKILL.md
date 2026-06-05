@@ -102,4 +102,4 @@ The Default Shift question seeds the Mindset framework before `/level-up` formal
 - Idempotency: re-run `/onboard` with one Q3 priority changed. Expected: only `context/priorities.md` and `CLAUDE.md`'s priority section update; backup created in `archives/intake-{ts}/`.
 - Voice rejection: type a sample mid-chat. Expected: skill refuses, asks for paste.
 
-> *Adapted from The Three Ms of AI™ © 2026 Nate Herk. The Mindset language used in the closing screen comes from `references/3ms-framework.md`.*
+> *Inspired by Nate Herk's "The Three Ms of AI" framework. The Mindset language in the closing screen lives in `references/3ms-framework.md`.*

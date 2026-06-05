@@ -18,7 +18,7 @@ It's the open, customizable skeleton: **fork it for any role, company, or domain
 
 **The Four Cs** — Context (knows your business) · Connections (reaches your stuff) · Capabilities (knows how to do the work) · Cadence (runs without being asked).
 
-**The Three Ms** — Mindset · Method · Machine (`references/3ms-framework.md`). *Both frameworks © Nate Herk — see `NOTICE`.*
+**The Three Ms** — Mindset · Method · Machine (`references/3ms-framework.md`). *Both frameworks inspired by Nate Herk's work — see `NOTICE`.*
 
 **WAT — Workflows · Agents · Tools.** Probabilistic AI reasons; deterministic code executes. Boring, testable, auditable.
 
@@ -58,4 +58,4 @@ See `EXPANSIONS.md` for what to add as you grow.
 The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the generic defaults unchanged for a regulated business.
 
 ## License & attribution
-gAIOS is **© 2026 Alireza Rezvani**, MIT-licensed (see `LICENSE`). It builds on Nate Herk's MIT-licensed AIS-OS starter kit; the Three Ms / Four Cs frameworks and the base structure remain © Nate Herk and are credited as the source (see `NOTICE`). The added layers — WAT integration, second-brain wiki, autoresearch harness, dynamic workflows, Operating discipline, the tools — are Alireza Rezvani's work. Preserve the framework attribution; don't repackage the frameworks as anyone's own.
+gAIOS is **© 2026 Alireza Rezvani**, MIT-licensed (see `LICENSE`). It is inspired by Nate Herk's AIS-OS starter kit and his Three Ms / Four Cs frameworks, which are credited as inspiration (see `NOTICE`); those framework names are Nate Herk's trademarks. Everything in this repo — the WAT integration, second-brain wiki, autoresearch harness, dynamic workflows, Operating discipline, and the tools — is Alireza Rezvani's work. Please keep the inspiration credit to Nate Herk.

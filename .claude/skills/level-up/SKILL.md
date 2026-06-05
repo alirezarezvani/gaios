@@ -3,8 +3,7 @@ name: level-up
 description: Use weekly to find and ship one new automation. Walks the 3Ms interview — Mindset (find the candidate) → Method (scope one) → Machine (build it). Trigger on "let's level up", "what should I automate next", "find me leverage this week", or as a Friday ritual. One run = one shipped artifact.
 ---
 
-> *Adapted from The Three Ms of AI™. © 2026 Nate Herk. All rights reserved.*
-> *The Three Ms of AI™ is a trademark of Nate Herk.*
+> *Inspired by Nate Herk's "The Three Ms of AI"™ framework ("The Three Ms of AI" is his trademark).*
 
 ## What this skill does
 
@@ -116,7 +115,7 @@ Once chosen, route to the appropriate scaffolder:
 ---
 bike-method-phase: 1  # Phase 1 — Training wheels. Run manually first.
 three-ms-attribution: |
-  Adapted from The Three Ms of AI™ © 2026 Nate Herk.
+  Inspired by Nate Herk's "The Three Ms of AI" framework.
 ---
 ```
 
@@ -157,4 +156,4 @@ Every `/level-up` run produces:
 
 ---
 
-> *The Three Ms of AI™ is a trademark of Nate Herk. © 2026 Nate Herk. All rights reserved.*
+> *Inspired by Nate Herk's "The Three Ms of AI"™ framework.*

@@ -2,17 +2,15 @@ gAIOS — NOTICE / attribution
 ============================
 
 gAIOS is the work of Alireza Rezvani (© 2026), MIT-licensed (see LICENSE). It is
-assembled on, and extends, the AIS-OS starter kit; that base kit and its
-frameworks are credited below and retain their own authorship.
+inspired by Nate Herk's AIS-OS starter kit and his frameworks, credited below.
 
-Base kit & frameworks
+Credits & inspiration
 ---------------------
-- The base AIOS structure (the Four Cs architecture, the /onboard /audit /level-up
-  skills, the folder layout) and the two frameworks below are the work of Nate Herk,
-  provided under the MIT License. © 2026 Nate Herk.
-- "The Three Ms of AI"™ and "The Four Cs of an AIOS"™ are trademarks of Nate Herk.
-  They ship here with attribution (see references/3ms-framework.md). Use freely; do
-  not repackage them as your own.
+- gAIOS is inspired by Nate Herk's AIS-OS starter kit and his work on AI
+  operating systems — the conceptual frameworks below originated with him.
+- "The Three Ms of AI"™ and "The Four Cs of an AIOS"™ are Nate Herk's frameworks
+  and trademarks; they are credited here as inspiration (see
+  references/3ms-framework.md). The names remain his.
 
 Additions in gAIOS
 ------------------
