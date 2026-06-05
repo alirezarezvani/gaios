@@ -1,0 +1,34 @@
+/* {{BRAND}} — Brand Identity Tokens (PLACEHOLDER)
+   Source of truth: brand-assets/DESIGN.md + brand-tokens.json. Replace the values with your brand.
+   Email clients need INLINE styles — these variables are the reference to inline from.
+   Load the font: <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> */
+
+:root {
+  --primary: #2563EB; --primary-active: #1D4ED8; --primary-disabled: #BFDBFE;
+  --primary-80: #3B82F6; --primary-60: #60A5FA; --primary-40: #93C5FD; --primary-20: #DBEAFE;
+  --secondary: #0F172A; --secondary-80: #334155; --secondary-60: #64748B; --secondary-40: #94A3B8; --secondary-20: #E2E8F0;
+  --tertiary: #7C3AED;
+  --ink: #1F2937; --subtitle: #475569; --muted: #94A3B8;
+  --text-on-primary: #FFFFFF; --text-on-secondary: #FFFFFF;
+  --canvas: #FFFFFF; --surface-card: #FFFFFF; --surface-soft: #F1F5F9; --surface-tint: #DBEAFE;
+  --hairline: #E2E8F0; --hairline-soft: #F1F5F9; --border-strong: #CBD5E1; --disabled: #E5E7EB;
+  --positive: #16A34A; --information: #0284C7; --warning: #D97706; --critical: #DC2626;
+  --ff: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  --radius-md: 12px; --radius-lg: 16px; --radius-full: 9999px;
+  --elevation-card: 0 1px 2px rgba(15,23,42,.04), 0 4px 12px rgba(15,23,42,.08);
+}
+
+body { font-family: var(--ff); color: var(--ink); background: var(--canvas); margin: 0; }
+a { color: var(--primary); }
+.btn-primary { background: var(--primary); color: var(--text-on-primary); font: 700 16px/1 var(--ff); padding: 12px 20px; border: 0; border-radius: var(--radius-md); cursor: pointer; }
+.btn-secondary { background: #fff; color: var(--secondary); border: 1px solid var(--secondary); font: 700 16px/1 var(--ff); padding: 11px 19px; border-radius: var(--radius-md); }
+.card { background: var(--surface-card); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--elevation-card); }
+.metric-card .value { font: 700 48px/1.05 var(--ff); letter-spacing: -1px; color: var(--primary); }
+.pill { display: inline-block; border-radius: var(--radius-full); font: 600 12px/1.3 var(--ff); padding: 4px 10px; }
+.pill.positive { background: #DCFCE7; color: var(--positive); }
+.pill.warning { background: #FEF3C7; color: #92400E; }
+.pill.critical { background: #FEE2E2; color: var(--critical); }
+table.brand { border-collapse: collapse; width: 100%; font: 400 14px/1.4 var(--ff); }
+table.brand th { background: var(--secondary); color: var(--text-on-secondary); text-align: left; padding: 10px 12px; font-weight: 600; }
+table.brand td { padding: 10px 12px; border-bottom: 1px solid var(--hairline); }
+table.brand tr:nth-child(even) td { background: var(--surface-tint); }

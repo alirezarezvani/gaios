@@ -1,0 +1,32 @@
+gAIOS — NOTICE / attribution
+============================
+
+This project builds on the AIS-OS starter kit.
+
+Base kit & frameworks
+---------------------
+- The base AIOS structure (the Four Cs architecture, the /onboard /audit /level-up
+  skills, the folder layout) and the two frameworks below are the work of Nate Herk,
+  provided under the MIT License. © 2026 Nate Herk.
+- "The Three Ms of AI"™ and "The Four Cs of an AIOS"™ are trademarks of Nate Herk.
+  They ship here with attribution (see references/3ms-framework.md). Use freely; do
+  not repackage them as your own.
+
+Additions in gAIOS
+------------------
+The following layers extend the base kit and are provided by {{YOUR_NAME / ORG}}
+under the MIT License (see LICENSE):
+- WAT (Workflows · Agents · Tools) execution model wired into CLAUDE.md
+- The "Operating discipline" behavioral guidelines (generalized from Karpathy's
+  CLAUDE.md coding guidelines)
+- The second-brain wiki (raw → wiki loop + tools/wiki_lint.py), inspired by
+  BuildGreatProducts/SimpleBrain
+- The autoresearch experiment harness (tools/experiment_log.py + the forecast
+  example), inspired by karpathy/autoresearch
+- The dynamic-workflows pattern and example workflows
+- The deterministic tools in tools/ and the brand-kit templates in brand-assets/
+
+Third-party inspiration credited above retains its own authors/licenses; only the
+implementations in this repo are covered by LICENSE.
+
+Replace {{YOUR_NAME / ORG}} with your name when you publish.

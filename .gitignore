@@ -1,0 +1,27 @@
+.env
+.env.local
+.DS_Store
+*.log
+__pycache__/
+node_modules/
+.claude/settings.local.json
+audits/
+
+# WAT: disposable processing area — never commit intermediates (may hold confidential data)
+.tmp/
+
+# Wiki capture inbox — contents NEVER committed (may hold PHI / financials / PII).
+# Only the policy READMEs are tracked; captured + archived sources stay local-only.
+/raw/**
+!/raw/README.md
+!/raw/_archive/
+!/raw/_archive/README.md
+
+# Experiment run artifacts — metrics may be confidential on real runs; the harness/surface/CARD are tracked
+experiments/**/results.tsv
+experiments/**/run.log
+experiments/**/data/
+
+# Tool credentials (if ever added) — secrets only in .env
+credentials.json
+token.json

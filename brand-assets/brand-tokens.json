@@ -1,0 +1,28 @@
+{
+  "$meta": {
+    "brand": "{{BRAND}}",
+    "note": "PLACEHOLDER tokens — replace with your brand (see DESIGN.md). Consumed by tools/render_brand_html.py and brand-identity.css.",
+    "how": "Drop your logo files here, set the hex values + font below, and the renderer + preview update automatically."
+  },
+  "color": {
+    "primary": "#2563EB", "primary-active": "#1D4ED8", "primary-disabled": "#BFDBFE",
+    "primary-80": "#3B82F6", "primary-60": "#60A5FA", "primary-40": "#93C5FD", "primary-20": "#DBEAFE",
+    "secondary": "#0F172A", "secondary-80": "#334155", "secondary-60": "#64748B", "secondary-40": "#94A3B8", "secondary-20": "#E2E8F0",
+    "tertiary": "#7C3AED",
+    "ink": "#1F2937", "subtitle": "#475569", "muted": "#94A3B8", "on-primary": "#FFFFFF", "on-secondary": "#FFFFFF",
+    "canvas": "#FFFFFF", "surface-card": "#FFFFFF", "surface-soft": "#F1F5F9", "surface-tint": "#DBEAFE",
+    "hairline": "#E2E8F0", "hairline-soft": "#F1F5F9", "border-strong": "#CBD5E1", "disabled": "#E5E7EB",
+    "positive": "#16A34A", "information": "#0284C7", "warning": "#D97706", "critical": "#DC2626", "scrim": "#000000"
+  },
+  "typography": {
+    "fontFamily": "Inter",
+    "fallback": "'Inter', 'Segoe UI', Helvetica, Arial, sans-serif",
+    "webfont": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "weights": { "regular": 400, "medium": 500, "semibold": 600, "bold": 700 }
+  },
+  "rounded": { "none": 0, "xs": 4, "sm": 8, "md": 12, "lg": 16, "xl": 24, "full": 9999 },
+  "logo": {
+    "horizontal": { "file": "{{logo.png}}", "treatment": "primary on light" },
+    "missing": ["replace with your own logo files (SVG preferred)"]
+  }
+}

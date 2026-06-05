@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{BRAND}} — Brand Preview (template)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#2563EB;--secondary:#0F172A;--ink:#1F2937;--muted:#94A3B8;--canvas:#FFFFFF;
+    --surface-tint:#DBEAFE;--hairline:#E2E8F0;--positive:#16A34A;--warning:#D97706;--critical:#DC2626;
+    --ff:'Inter','Segoe UI',Helvetica,Arial,sans-serif;}
+  *{box-sizing:border-box}body{font-family:var(--ff);color:var(--ink);background:var(--canvas);margin:0}
+  .wrap{max-width:880px;margin:0 auto;padding:40px 24px}
+  h1{font-weight:700;font-size:32px;letter-spacing:-.5px;margin:0 0 4px}
+  .note{background:#F1F5F9;border-radius:12px;padding:12px 16px;font-size:14px;margin:12px 0 28px}
+  h2{font-size:18px;color:var(--secondary);border-bottom:1px solid var(--hairline);padding-bottom:8px;margin:32px 0 16px}
+  .sw{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+  .chip{height:56px;border-radius:8px;border:1px solid var(--hairline)}
+  .lbl{font-size:11px;color:var(--muted);margin-top:4px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{border:0;border-radius:12px;padding:12px 20px;font:700 16px var(--ff);cursor:pointer}
+  .btn-primary{background:var(--primary);color:#fff}.btn-secondary{background:#fff;color:var(--secondary);border:1px solid var(--secondary)}
+  .metric{border:1px solid var(--hairline);border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(15,23,42,.08);display:inline-block;min-width:200px}
+  .metric .v{font-weight:700;font-size:48px;color:var(--primary);line-height:1}
+  .metric .l{font-size:14px;color:var(--muted);margin-top:6px}
+  .pill{display:inline-block;border-radius:9999px;font:600 12px var(--ff);padding:4px 10px}
+  .pill.positive{background:#DCFCE7;color:var(--positive)}.pill.warning{background:#FEF3C7;color:#92400E}.pill.critical{background:#FEE2E2;color:var(--critical)}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin-top:8px}
+  th{background:var(--secondary);color:#fff;text-align:left;padding:10px 12px}
+  td{padding:10px 12px;border-bottom:1px solid var(--hairline)}tr:nth-child(even) td{background:var(--surface-tint)}
+</style></head><body><div class="wrap">
+  <h1>{{BRAND}} — Brand Preview</h1>
+  <div class="note">⚠️ <strong>Template</strong> — placeholder palette + Inter. Replace the values in <code>brand-tokens.json</code> / <code>brand-identity.css</code> with your brand; refresh to see it.</div>
+
+  <h2>Color</h2>
+  <div class="sw">
+    <div><div class="chip" style="background:#2563EB"></div><div class="lbl">primary</div></div>
+    <div><div class="chip" style="background:#0F172A"></div><div class="lbl">secondary</div></div>
+    <div><div class="chip" style="background:#16A34A"></div><div class="lbl">positive</div></div>
+    <div><div class="chip" style="background:#D97706"></div><div class="lbl">warning</div></div>
+    <div><div class="chip" style="background:#DC2626"></div><div class="lbl">critical</div></div>
+  </div>
+
+  <h2>Components</h2>
+  <div class="row" style="margin-bottom:24px">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <span class="pill positive">On track</span>
+    <span class="pill warning">At risk</span>
+    <span class="pill critical">Blocked</span>
+  </div>
+  <div class="metric"><div class="v">128</div><div class="l">A KPI (sample)</div></div>
+
+  <h2>Table</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Actual</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>Sample A</td><td>128</td><td>120</td></tr>
+      <tr><td>Sample B</td><td>54</td><td>60</td></tr>
+    </tbody>
+  </table>
+</div></body></html>
