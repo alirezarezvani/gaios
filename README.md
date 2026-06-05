@@ -58,4 +58,4 @@ See `EXPANSIONS.md` for what to add as you grow.
 The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the generic defaults unchanged for a regulated business.
 
 ## License & attribution
-See `NOTICE` and `LICENSE`. The Three Ms / Four Cs frameworks and the base structure are © Nate Herk (MIT). The added layers (WAT integration, second-brain wiki, autoresearch harness, dynamic workflows, Operating discipline, the tools) extend that kit. Preserve attribution; don't repackage the frameworks as your own.
+gAIOS is **© 2026 Alireza Rezvani**, MIT-licensed (see `LICENSE`). It builds on Nate Herk's MIT-licensed AIS-OS starter kit; the Three Ms / Four Cs frameworks and the base structure remain © Nate Herk and are credited as the source (see `NOTICE`). The added layers — WAT integration, second-brain wiki, autoresearch harness, dynamic workflows, Operating discipline, the tools — are Alireza Rezvani's work. Preserve the framework attribution; don't repackage the frameworks as anyone's own.

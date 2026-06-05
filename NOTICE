@@ -1,7 +1,9 @@
 gAIOS — NOTICE / attribution
 ============================
 
-This project builds on the AIS-OS starter kit.
+gAIOS is the work of Alireza Rezvani (© 2026), MIT-licensed (see LICENSE). It is
+assembled on, and extends, the AIS-OS starter kit; that base kit and its
+frameworks are credited below and retain their own authorship.
 
 Base kit & frameworks
 ---------------------
@@ -14,8 +16,8 @@ Base kit & frameworks
 
 Additions in gAIOS
 ------------------
-The following layers extend the base kit and are provided by {{YOUR_NAME / ORG}}
-under the MIT License (see LICENSE):
+The following layers extend the base kit and are the work of Alireza Rezvani,
+provided under the MIT License (see LICENSE):
 - WAT (Workflows · Agents · Tools) execution model wired into CLAUDE.md
 - The "Operating discipline" behavioral guidelines (generalized from Karpathy's
   CLAUDE.md coding guidelines)
@@ -26,7 +28,6 @@ under the MIT License (see LICENSE):
 - The dynamic-workflows pattern and example workflows
 - The deterministic tools in tools/ and the brand-kit templates in brand-assets/
 
-Third-party inspiration credited above retains its own authors/licenses; only the
-implementations in this repo are covered by LICENSE.
-
-Replace {{YOUR_NAME / ORG}} with your name when you publish.
+Third-party inspiration credited above retains its own authors/licenses. The
+gAIOS implementation — the original layers listed in this section — is the work
+of Alireza Rezvani and is covered by LICENSE.

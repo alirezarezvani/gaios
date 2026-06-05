@@ -1,6 +1,10 @@
 MIT License
 
-Copyright (c) 2026 Nate Herk
+Copyright (c) 2026 Alireza Rezvani
+
+Portions Copyright (c) 2026 Nate Herk
+  (the base AIOS kit — the Four Cs structure, the /onboard /audit /level-up
+  skills, the folder layout — and the Three Ms / Four Cs frameworks; see NOTICE)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12,9 +16,9 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-The Three Ms of AI™ is a trademark of Nate Herk. The framework content in
-references/3ms-framework.md is shared under the same MIT terms; the trademark
-on the name is reserved.
+The Three Ms of AI™ and The Four Cs of an AIOS™ are trademarks of Nate Herk.
+The framework content in references/3ms-framework.md is shared under the same
+MIT terms; the trademarks on the names are reserved.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
