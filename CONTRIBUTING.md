@@ -42,7 +42,7 @@ Every PR runs and must pass:
 | `bandit` | Python security scan (fails on medium+ severity) |
 | `guard` | (PRs into `main` only) rejects sources other than `dev`/`hotfix/*` |
 
-`dependency-review` runs on PRs and the Claude Code Review bot comments automatically.
+The Claude Code Review bot also comments on PRs automatically.
 Tag **`@claude`** in an issue or PR comment to ask for help.
 
 ## Rules
