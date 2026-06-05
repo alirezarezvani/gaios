@@ -5,6 +5,7 @@
 __pycache__/
 node_modules/
 .claude/settings.local.json
+.claude/claudex/
 audits/
 
 # WAT: disposable processing area — never commit intermediates (may hold confidential data)
