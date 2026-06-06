@@ -1,0 +1,70 @@
+name: AI Review
+
+# Claude reviews every PR and emits a pass/fail verdict. This job is the `ai-review`
+# required check — it REPLACES manual human approval. WAT split: Claude reasons (the
+# review), deterministic code executes (the gate below). Fail-closed: if no clear
+# APPROVE verdict is produced, the check fails and the PR cannot merge.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main, dev]
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
+concurrency:
+  group: ai-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  ai-review:
+    name: ai-review
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Claude review → verdict file
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: '--allowed-tools "Read,Grep,Glob,Write,Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*)"'
+          prompt: |
+            You are the merge-gate reviewer for ${{ github.repository }}, PR #${{ github.event.pull_request.number }}
+            (base branch: ${{ github.base_ref }}).
+
+            Review the diff for: correctness/bugs; security; and gAIOS guardrail compliance —
+            NO secrets / PHI / PII / confidential figures committed; external comms are drafts not sent;
+            regulatory/clinical/financial/legal claims are cited, not invented. Also check clarity and
+            that the PR title is a Conventional Commit.
+
+            Apply a STRICTER bar when the base branch is `main` (production): pass only a clean,
+            low-risk promotion from `dev`/`hotfix/*`.
+
+            Post ONE concise review summary as a PR comment (use `gh pr comment`).
+
+            Then write your verdict to a file named `ai-verdict.txt` in the repository root.
+            The FIRST LINE must be EXACTLY `APPROVE` or `REQUEST_CHANGES` (nothing else on that line),
+            followed by a blank line and the key reasons. This file is the machine-readable gate.
+
+      - name: Gate on verdict (fail-closed)
+        run: |
+          if [ ! -f ai-verdict.txt ]; then
+            echo "::error::No ai-verdict.txt produced — failing closed (no merge without a clear AI approval)."
+            exit 1
+          fi
+          echo "----- AI verdict -----"
+          cat ai-verdict.txt
+          echo "----------------------"
+          verdict="$(head -n 1 ai-verdict.txt | tr -d '\r' | tr -d '[:space:]')"
+          if [ "$verdict" = "APPROVE" ]; then
+            echo "AI review APPROVED."
+          else
+            echo "::error::AI review did not approve (verdict: '$verdict'). See the PR comment for details."
+            exit 1
+          fi

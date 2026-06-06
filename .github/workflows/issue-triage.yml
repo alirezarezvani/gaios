@@ -1,0 +1,39 @@
+name: Issue Triage
+
+# Auto-triage every new issue with Claude: apply labels and post a concise first-pass
+# assessment so the backlog stays organized without manual sorting. Read-only on code;
+# only touches issue labels/comments.
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  triage:
+    name: triage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Claude triage
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: '--allowed-tools "Read,Grep,Glob,Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(gh label list:*)"'
+          prompt: |
+            Triage issue #${{ github.event.issue.number }} in ${{ github.repository }}.
+
+            1. Read the issue with `gh issue view`.
+            2. Apply suitable labels with `gh issue edit --add-label` (pick from existing labels via
+               `gh label list`: bug, enhancement, documentation, question, good first issue, help wanted).
+               If it looks high-risk or security-related, also add `risk:high`.
+            3. Post ONE concise comment with `gh issue comment`: a 1–2 line restatement of the ask, a
+               short initial assessment, and a suggested next step. Keep gAIOS guardrails in mind
+               (no secrets/PHI; cite don't invent). Do not start implementation work.

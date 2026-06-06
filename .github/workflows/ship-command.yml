@@ -1,0 +1,39 @@
+name: Ship Command
+
+# The `@claude ship` production signal. When the repo owner comments "@claude ship" on a PR
+# into main, this applies the `ship-it` label — which satisfies the release-gate and lets
+# auto-merge promote dev -> main. Authorization is hardcoded to the owner; the comment body
+# is only matched in `if` (never interpolated into a shell).
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ship:
+    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '@claude ship') }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      PR: ${{ github.event.issue.number }}
+      ACTOR: ${{ github.event.comment.user.login }}
+    steps:
+      - name: Authorize and apply ship-it
+        run: |
+          if [ "$ACTOR" != "alirezarezvani" ]; then
+            echo "::warning::'@claude ship' from '$ACTOR' ignored — only the repo owner can ship."
+            exit 0
+          fi
+          base="$(gh pr view "$PR" -R "$REPO" --json baseRefName --jq .baseRefName)"
+          if [ "$base" != "main" ]; then
+            echo "PR #$PR targets '$base', not main — ship-it not needed."
+            exit 0
+          fi
+          gh pr edit "$PR" -R "$REPO" --add-label ship-it
+          gh pr comment "$PR" -R "$REPO" --body "🚢 ship-it applied by @$ACTOR — auto-merge will promote to main once all checks pass."
+          echo "ship-it applied to #$PR."
