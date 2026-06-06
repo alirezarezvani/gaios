@@ -66,6 +66,16 @@ The full, domain-customized list is in `CLAUDE.md`. These always apply:
 
 Default autonomy is **draft-not-send, human-in-the-loop**; raise it per workflow only once trusted.
 
+## Verification Gate
+
+Before multi-step work, any factual/numeric claim, anything others will see, or anything that
+sends / publishes / schedules / deletes / acts outside the repo: state (1) what "done right" is,
+(2) the concrete check you'll run — trace numbers to source · confirm a link/quote · run the test ·
+`/graph-query` · re-verify the action took effect — and (3) what would prove it wrong. **Wait for my
+OK on external/irreversible/regulated actions; on reversible/internal work produce your best version
+with the checks already run, then show.** Report what you actually found — no vague assurances. Skip
+for quick lookups, small edits, or "just do it." (Full version + rationale in `CLAUDE.md`.)
+
 ## Codex specifics
 
 - **Instructions** — this `AGENTS.md` (repo root). Codex also merges `~/.codex/AGENTS.md`
