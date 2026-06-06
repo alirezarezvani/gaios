@@ -12,6 +12,7 @@ Registry of every system the AIOS can reach. `/audit` checks this file for domai
 | 6 | Meeting intelligence | {{transcription tool}} | `not yet connected` | — | — |
 | 7 | Knowledge / files | {{Drive / SharePoint / Confluence}} | `not yet connected` | — | — |
 | 8 | Code | {{GitHub / GitLab}} | `not yet connected` | — | — |
+| 9 | Knowledge graph | graphify | `script` (CLI) + optional `mcp` | none — local; in-IDE session | `tools/graphify_setup.py` · see `references/graphify-api.md` |
 
 **Mechanism options:** `mcp` (MCP server), `script` (Python/Bash hitting an API, in `tools/`), `export` (CSV/JSON dump), `key+ref` (`.env` key + `references/{tool}-api.md`), `not yet connected`.
 

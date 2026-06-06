@@ -74,7 +74,7 @@ Print one screen. Three lines max:
 ✓ Day 1 done. Your AIOS knows who you are, what you sell, what matters this quarter, and how you sound.
 
 Today: ask me — "what should I focus on this week?"
-Tomorrow: pick one tool from connections.md and wire it up (manual MCP install or write a small API script + save references/{tool}-api.md).
+Tomorrow: pick one tool from connections.md and wire it up (manual MCP install or write a small API script + save references/{tool}-api.md). Optional: `python tools/graphify_setup.py install` adds the knowledge graph (/graph).
 Day 7: run /audit to see your score.
 ```
 

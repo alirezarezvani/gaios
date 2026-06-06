@@ -39,7 +39,10 @@ When the user asks for one of these — by name or by intent — read the matchi
 |-------|-----------|
 | `setup` | First-run guided setup (fills `CLAUDE.md`, `context/`, voice, connections) |
 | `structure` | Turn a fuzzy input into a brief (Context · Outcome · Goal · Owner · Next step · Decision) |
+| `triage` | Batch-sort a pile of asks/emails/messages into owners, next steps, and a decision shortlist |
+| `daily` · `weekly` | Cadence: a focused daily brief and a weekly operating review against your priorities |
 | `wiki` | Translate `raw/` captures into clean, cross-linked `wiki/` knowledge |
+| `graph` · `graph-query` · `graph-ingest` | Knowledge graph (graphify): build/visualize the graph of code + committed `wiki/`, query relationships, ingest external sources |
 | `workflow` | Orchestrate a multi-step goal with a gate + verify per step |
 | `experiment` | Autoresearch loop: try → measure → keep/revert → log |
 | `exec-cockpit` | Leadership-transition / exec cockpit template |
@@ -63,12 +66,23 @@ The full, domain-customized list is in `CLAUDE.md`. These always apply:
 
 Default autonomy is **draft-not-send, human-in-the-loop**; raise it per workflow only once trusted.
 
+## Verification Gate
+
+Before multi-step work, any factual/numeric claim, anything others will see, or anything that
+sends / publishes / schedules / deletes / acts outside the repo: state (1) what "done right" is,
+(2) the concrete check you'll run — trace numbers to source · confirm a link/quote · run the test ·
+`/graph-query` · re-verify the action took effect — and (3) what would prove it wrong. **Wait for my
+OK on external/irreversible/regulated actions; on reversible/internal work produce your best version
+with the checks already run, then show.** Report what you actually found — no vague assurances. Skip
+for quick lookups, small edits, or "just do it." (Full version + rationale in `CLAUDE.md`.)
+
 ## Codex specifics
 
 - **Instructions** — this `AGENTS.md` (repo root). Codex also merges `~/.codex/AGENTS.md`
   (global) and any nested `AGENTS.md`, closest-wins. Keep this file under 32 KiB
   (`project_doc_max_bytes`).
 - **Skills** — project skills load from `.codex/skills` (→ `.claude/skills`); personal skills from `~/.codex/skills`.
+- **Knowledge graph** — install graphify for Codex with `graphify install --platform codex` (or `python tools/graphify_setup.py install`); then `/graph`, `/graph-query`, `/graph-ingest` work here too.
 - **Tools / MCP** — configure MCP servers and approval policy in `~/.codex/config.toml`. The
   deterministic Python tools in `tools/` run unchanged.
 - **Secrets** — `.env` (git-ignored). Never commit keys.

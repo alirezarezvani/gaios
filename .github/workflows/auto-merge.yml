@@ -1,0 +1,51 @@
+name: Auto-merge
+
+# The merge orchestrator. Turns on GitHub native auto-merge for eligible PRs; GitHub then
+# merges automatically once ALL required checks pass (deterministic gates + ai-review +
+# commit-lint [+ guard/release-gate for main]). Nothing here bypasses a check.
+#   feature/* -> dev : auto (squash)            — low blast radius
+#   dev/hotfix -> main: auto (merge) IF ship-it — calibrated production checkpoint
+# Manual stop button: add the `hold` (or `do-not-merge`) label, or keep the PR a draft.
+
+on:
+  pull_request:
+    types: [opened, ready_for_review, reopened, synchronize, labeled, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  enable:
+    name: enable-auto-merge
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      BASE: ${{ github.base_ref }}
+      LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+    steps:
+      - name: Decide and enable auto-merge
+        run: |
+          # Manual override: hold / do-not-merge stops everything.
+          case ",$LABELS," in
+            *,hold,*|*,do-not-merge,*)
+              echo "Override label present — not enabling auto-merge for #$PR."; exit 0 ;;
+          esac
+
+          if [ "$BASE" = "dev" ]; then
+            gh pr merge "$PR" -R "$REPO" --auto --squash
+            echo "Auto-merge (squash) enabled for dev PR #$PR — will merge when all checks pass."
+          elif [ "$BASE" = "main" ]; then
+            case ",$LABELS," in
+              *,ship-it,*)
+                gh pr merge "$PR" -R "$REPO" --auto --merge
+                echo "Auto-merge (merge commit) enabled for production PR #$PR." ;;
+              *)
+                echo "Production PR #$PR has no ship-it signal yet — waiting (label it or comment '@claude ship')." ;;
+            esac
+          else
+            echo "Base '$BASE' is not an auto-merge target."
+          fi
