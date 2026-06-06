@@ -19,5 +19,6 @@ Not every tool is a Python script. MS365 / Atlassian / HubSpot MCP calls are als
 | `render_brand_html.py` | Renders an on-brand HTML doc from a content JSON, styled from `brand-assets/brand-tokens.json` | `--content <json>` | branded `.html` (default `.tmp/`) |
 | `wiki_lint.py` | Safety gate for `wiki/`: broken-link + orphan checks, leakage scan (IBAN/secrets = error, currency/PHI markers = warning) | `--path wiki [--strict]` | report; exit 1 on errors |
 | `experiment_log.py` | Generic experiment trail (autoresearch loop): init/add/show/best on a `results.tsv` | `init\|add\|show\|best <path>` | TSV trail |
+| `open_loops.py` | Open-loops / commitment tracker for the cadence skills (`/daily`, `/weekly`): add/list/overdue/done | `add\|list\|overdue\|done` | TSV store (`open-loops.tsv`, git-ignored) |
 
 See `references/sops/` for the workflow each tool serves.

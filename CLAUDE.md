@@ -38,11 +38,15 @@ Bias toward care over speed; for trivial asks, use judgement.
 
 - `/setup` — **First-run guided setup.** Interviews you (identity, role, priorities, connections, team, pain, guardrails, voice) and fills the templates. **Start here.**
 - `/structure` — turn any fuzzy input into a brief: Context · Outcome · Goal · Owner · Next step · Decision.
+- `/triage` — batch intake: sort a pile of asks/emails/messages into owners, next steps, and a decision shortlist.
+- `/daily` · `/weekly` — the **Cadence** layer: a focused daily brief and a weekly operating review against your priorities.
 - `/wiki` — second brain: turn `raw/` captures into clean `wiki/` knowledge (governed by the admission policy).
 - `/workflow` — dynamic workflows: orchestrate a multi-step goal composing skills/tools/MCPs, with a gate + verify per step (`references/sops/dynamic-workflows.md`).
 - `/experiment` — autoresearch loop: hill-climb a measurable artifact (try → measure → keep/revert → log).
 - `/exec-cockpit` — *(template)* leadership-transition / exec cockpit: handoff doc, open-loops tracker, comms cadence, recurring report drafter.
 - `/onboard` · `/audit` · `/level-up` — base-kit setup + weekly review skills.
+
+> **Building a new skill?** Follow `references/sops/authoring-skills.md` — it keeps new workflows consistent (and Codex-compatible by default, via the `.codex/skills` symlink).
 
 ## Where things live
 
