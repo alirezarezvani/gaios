@@ -41,6 +41,7 @@ Bias toward care over speed; for trivial asks, use judgement.
 - `/triage` — batch intake: sort a pile of asks/emails/messages into owners, next steps, and a decision shortlist.
 - `/daily` · `/weekly` — the **Cadence** layer: a focused daily brief and a weekly operating review against your priorities.
 - `/wiki` — second brain: turn `raw/` captures into clean `wiki/` knowledge (governed by the admission policy).
+- `/graph` · `/graph-query` · `/graph-ingest` — **knowledge graph** (graphify): build/visualize the graph of your code + committed `wiki/`, query relationships, and ingest external sources into the second brain (`references/sops/knowledge-graph.md`).
 - `/workflow` — dynamic workflows: orchestrate a multi-step goal composing skills/tools/MCPs, with a gate + verify per step (`references/sops/dynamic-workflows.md`).
 - `/experiment` — autoresearch loop: hill-climb a measurable artifact (try → measure → keep/revert → log).
 - `/exec-cockpit` — *(template)* leadership-transition / exec cockpit: handoff doc, open-loops tracker, comms cadence, recurring report drafter.
@@ -75,6 +76,12 @@ See `EXPANSIONS.md` for what to add as you grow.
 The loop: **drop notes into `raw/` → `/wiki` translates them into clean, cross-linked entries in `wiki/` → processed captures move to `raw/_archive/`.** `wiki/` is your evolving *thinking and notes* — distinct from `context/` (stable facts) and `decisions/log.md`. One topic per file, kebab-case, relative cross-links. Procedure: `references/sops/wiki-translate.md`.
 
 **Admission policy (HARD):** `raw/` is **git-ignored**; `wiki/` is committed but holds **only interpreted, de-identified, non-confidential** knowledge. **No secrets, no confidential figures, and none of the sensitive/regulated data your domain restricts** (e.g. PHI/PII) — reference sensitive specifics, never transcribe them. Cite sources; log uncertainty. Never delete from `raw/` (move only); never overwrite a wiki entry blindly (read, then merge). `tools/wiki_lint.py` is the pre-commit gate.
+
+## Knowledge graph (graphify)
+
+graphify turns the repo (code + the committed `wiki/`) into a navigable, queryable **knowledge graph** — the second brain you can *see*. Build/refresh with `/graph`, ask it with `/graph-query`, pull external sources into the loop with `/graph-ingest` (→ `raw/` → `/wiki` admits → graph). It maps onto the **3Ms** (Mindset: see what you built; Method: find the constraint via god-nodes + impact; Machine: deterministic code AST, audit-trailed edges) and runs on **Cadence** (post-commit hook / `--watch`). SOP: `references/sops/knowledge-graph.md` · reference: `references/graphify-api.md` · install: `tools/graphify_setup.py`.
+
+**Guardrail:** graph **code + the de-identified `wiki/` only** — never `raw/`, `.env`, or `.tmp/`. Code is processed locally; non-code extraction uses the host session. `graphify-out/` is git-ignored. graphify's `EXTRACTED/INFERRED/AMBIGUOUS` audit trail satisfies "cite, don't invent."
 
 ## Voice
 

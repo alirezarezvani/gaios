@@ -30,6 +30,7 @@ Open-source and opinionated — complete out of the box, not a blank slate. **Fo
 - `/structure` — turn any fuzzy input into a clear brief.
 - `/triage` · `/daily` · `/weekly` — the **Cadence** layer: batch-sort an inbox, get a focused daily brief, run a weekly operating review.
 - `/wiki` — a second brain: drop notes in `raw/`, get clean cross-linked knowledge in `wiki/` (with a leakage-scanning lint gate).
+- `/graph` · `/graph-query` · `/graph-ingest` — a **knowledge graph** (graphify) over your code + `wiki/`: build/visualize it, query relationships, and ingest external sources into the second brain.
 - `/workflow` — **dynamic workflows**: goal-driven, composable, self-verifying pipelines with a quality gate per step.
 - `/experiment` — an **autoresearch** loop (try → measure → keep/revert → log), with a runnable forecast example.
 - `/exec-cockpit` — a leadership-transition / exec-cockpit template.
@@ -54,7 +55,7 @@ references/          ← 3ms framework, voice, API guides
 brand-assets/        ← CI/CD template (tokens + preview)
 connections.md       ← registry of systems the AIOS can reach
 decisions/log.md     ← append-only decision record
-.claude/skills/      ← /setup, /structure, /triage, /daily, /weekly, /wiki, /workflow, /experiment, /exec-cockpit, /onboard, /audit, /level-up
+.claude/skills/      ← /setup, /structure, /triage, /daily, /weekly, /wiki, /graph, /graph-query, /graph-ingest, /workflow, /experiment, /exec-cockpit, /onboard, /audit, /level-up
 .codex/skills/       ← symlink → .claude/skills (so Codex discovers the same skills)
 ```
 
@@ -64,6 +65,16 @@ See `EXPANSIONS.md` for what to add as you grow.
 
 ## Customize for your domain
 The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the defaults unchanged for a regulated business.
+
+## Knowledge graph (graphify)
+
+gAIOS integrates **[graphify](https://github.com/safishamsi/graphify)** — it turns your code + committed `wiki/` into a navigable, queryable knowledge graph (interactive `graph.html`, a `GRAPH_REPORT.md` of god-nodes & surprising connections, and an MCP server). Build it with `/graph`, ask it with `/graph-query`, and feed external sources into your second brain with `/graph-ingest`.
+
+```bash
+python tools/graphify_setup.py install   # installs graphify + wires the Claude Code & Codex skills (also offered by /setup)
+```
+
+Code is processed **locally**; only the de-identified `wiki/` is sent to your host AI session for extraction (never `raw/`/`.env`/`.tmp/`), and `graphify-out/` is git-ignored. Details: [`references/graphify-api.md`](references/graphify-api.md) · SOP: [`references/sops/knowledge-graph.md`](references/sops/knowledge-graph.md).
 
 ## Compatibility
 

@@ -42,6 +42,7 @@ When the user asks for one of these — by name or by intent — read the matchi
 | `triage` | Batch-sort a pile of asks/emails/messages into owners, next steps, and a decision shortlist |
 | `daily` · `weekly` | Cadence: a focused daily brief and a weekly operating review against your priorities |
 | `wiki` | Translate `raw/` captures into clean, cross-linked `wiki/` knowledge |
+| `graph` · `graph-query` · `graph-ingest` | Knowledge graph (graphify): build/visualize the graph of code + committed `wiki/`, query relationships, ingest external sources |
 | `workflow` | Orchestrate a multi-step goal with a gate + verify per step |
 | `experiment` | Autoresearch loop: try → measure → keep/revert → log |
 | `exec-cockpit` | Leadership-transition / exec cockpit template |
@@ -71,6 +72,7 @@ Default autonomy is **draft-not-send, human-in-the-loop**; raise it per workflow
   (global) and any nested `AGENTS.md`, closest-wins. Keep this file under 32 KiB
   (`project_doc_max_bytes`).
 - **Skills** — project skills load from `.codex/skills` (→ `.claude/skills`); personal skills from `~/.codex/skills`.
+- **Knowledge graph** — install graphify for Codex with `graphify install --platform codex` (or `python tools/graphify_setup.py install`); then `/graph`, `/graph-query`, `/graph-ingest` work here too.
 - **Tools / MCP** — configure MCP servers and approval policy in `~/.codex/config.toml`. The
   deterministic Python tools in `tools/` run unchanged.
 - **Secrets** — `.env` (git-ignored). Never commit keys.

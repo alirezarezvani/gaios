@@ -26,6 +26,9 @@ experiments/**/data/
 # Open-loops tracker data — commitments name people; the tool is tracked, the data stays local
 open-loops.tsv
 
+# Knowledge graph output (graphify) — derived artifact; may contain code/wiki extracts + cost.json; rebuilt per clone
+graphify-out/
+
 # Tool credentials (if ever added) — secrets only in .env
 credentials.json
 token.json
