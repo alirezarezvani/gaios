@@ -1,8 +1,8 @@
-# gAIOS — a generic AI Operating System blueprint
+# gAIOS — your personal AI Operating System
 
-Clone this folder, run `/setup`, and turn **Claude Code or Codex** into **your** personal AI Operating System — a second brain + Chief of Staff that holds your context, structures your work, drafts in your voice, and runs reliable workflows.
+Clone it, run `/setup`, and it becomes **yours** in **Claude Code or Codex** — a second brain + Chief of Staff that holds your context, structures your work, drafts in your voice, and runs reliable workflows.
 
-It's the open, customizable skeleton: **fork it for any role, company, or domain.** Nothing here is tied to one business.
+Open-source and opinionated — complete out of the box, not a blank slate. **Fork it and make it yours for any role, company, or domain.**
 
 ---
 
@@ -59,7 +59,7 @@ See `EXPANSIONS.md` for what to add as you grow.
 ---
 
 ## Customize for your domain
-The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the generic defaults unchanged for a regulated business.
+The `Guardrails` block in `CLAUDE.md` ships with safe defaults. **Set your sensitive-data line and compliance rules** (GDPR / HIPAA / SOC2 / medical-device / …) during `/setup` — don't run the defaults unchanged for a regulated business.
 
 ## Compatibility
 
