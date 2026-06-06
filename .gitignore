@@ -23,6 +23,9 @@ experiments/**/results.tsv
 experiments/**/run.log
 experiments/**/data/
 
+# Open-loops tracker data — commitments name people; the tool is tracked, the data stays local
+open-loops.tsv
+
 # Tool credentials (if ever added) — secrets only in .env
 credentials.json
 token.json

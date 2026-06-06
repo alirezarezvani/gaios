@@ -39,6 +39,8 @@ When the user asks for one of these — by name or by intent — read the matchi
 |-------|-----------|
 | `setup` | First-run guided setup (fills `CLAUDE.md`, `context/`, voice, connections) |
 | `structure` | Turn a fuzzy input into a brief (Context · Outcome · Goal · Owner · Next step · Decision) |
+| `triage` | Batch-sort a pile of asks/emails/messages into owners, next steps, and a decision shortlist |
+| `daily` · `weekly` | Cadence: a focused daily brief and a weekly operating review against your priorities |
 | `wiki` | Translate `raw/` captures into clean, cross-linked `wiki/` knowledge |
 | `workflow` | Orchestrate a multi-step goal with a gate + verify per step |
 | `experiment` | Autoresearch loop: try → measure → keep/revert → log |
