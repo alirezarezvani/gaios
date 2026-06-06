@@ -12,6 +12,8 @@ Open-source and opinionated — complete out of the box, not a blank slate. **Fo
 3. Answer the guided interview (identity, voice, priorities, stack, team, guardrails). It fills `CLAUDE.md`, `context/`, `references/voice.md`, and `connections.md`.
 4. Try the first prompt: *"what should I focus on this week?"*
 
+> **Not sure what to write?** Skim [`examples/`](examples/) first — directional guides by role (founder, ops, regulated medtech, creator, sales) that show the *shape* of a filled gAIOS. They're direction, not data — you won't copy them.
+>
 > Runtime compatibility (Claude Code · Codex · others) is summarized in [Compatibility](#compatibility) below.
 
 ---
@@ -40,6 +42,7 @@ Open-source and opinionated — complete out of the box, not a blank slate. **Fo
 ```
 CLAUDE.md            ← the operating manual (filled by /setup)
 AGENTS.md            ← Codex / cross-tool runtime bootstrap (mirrors CLAUDE.md's rules)
+examples/            ← directional guides by role (what good looks like; not pre-filled data)
 context/             ← about you, the business, the team, priorities
 wiki/  · raw/        ← second brain (wiki committed; raw git-ignored)
 projects/            ← active workstreams
