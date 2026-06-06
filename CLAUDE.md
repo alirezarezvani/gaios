@@ -61,6 +61,7 @@ Then **do it → run the checks → report what you actually found** — the evi
 - `/daily` · `/weekly` — the **Cadence** layer: a focused daily brief and a weekly operating review against your priorities.
 - `/wiki` — second brain: turn `raw/` captures into clean `wiki/` knowledge (governed by the admission policy).
 - `/graph` · `/graph-query` · `/graph-ingest` — **knowledge graph** (graphify): build/visualize the graph of your code + committed `wiki/`, query relationships, and ingest external sources into the second brain (`references/sops/knowledge-graph.md`).
+- `/draft` · `/prep` · `/decide` — Chief-of-Staff core: draft comms in your voice (draft-not-send external), prep a one-page brief for any meeting/person, and frame + log a decision to `decisions/log.md`.
 - `/workflow` — dynamic workflows: orchestrate a multi-step goal composing skills/tools/MCPs, with a gate + verify per step (`references/sops/dynamic-workflows.md`).
 - `/experiment` — autoresearch loop: hill-climb a measurable artifact (try → measure → keep/revert → log).
 - `/exec-cockpit` — *(template)* leadership-transition / exec cockpit: handoff doc, open-loops tracker, comms cadence, recurring report drafter.

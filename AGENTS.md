@@ -43,6 +43,7 @@ When the user asks for one of these — by name or by intent — read the matchi
 | `daily` · `weekly` | Cadence: a focused daily brief and a weekly operating review against your priorities |
 | `wiki` | Translate `raw/` captures into clean, cross-linked `wiki/` knowledge |
 | `graph` · `graph-query` · `graph-ingest` | Knowledge graph (graphify): build/visualize the graph of code + committed `wiki/`, query relationships, ingest external sources |
+| `draft` · `prep` · `decide` | Chief-of-Staff: draft comms in your voice (draft-not-send external), prep a meeting/person one-pager, frame + log a decision |
 | `workflow` | Orchestrate a multi-step goal with a gate + verify per step |
 | `experiment` | Autoresearch loop: try → measure → keep/revert → log |
 | `exec-cockpit` | Leadership-transition / exec cockpit template |
