@@ -39,3 +39,6 @@ To answer an ad-hoc question about past thinking: read `wiki/_index.md` first, t
 
 ## Output
 Updated `wiki/` (committed) + processed files in `raw/_archive/` (local). No sensitive data in git.
+
+## Knowledge graph
+After a meaningful wiki update, refresh the knowledge graph so the new thinking joins the rest: run `/graph` (graphify over code + the committed `wiki/`). The capture→admit→graph loop: `/graph-ingest` fetches a source into `raw/` → this SOP admits + de-identifies it into `wiki/` → `/graph` graphs it → `/graph-query` explores it. Only the committed (de-identified) `wiki/` is graphed — **never `raw/`**. See `references/sops/knowledge-graph.md`.

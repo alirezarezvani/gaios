@@ -21,7 +21,10 @@ A guided interview that turns the blueprint into a personalized AIOS. Read `aios
 Fill every `{{placeholder}}` in `CLAUDE.md` (name, persona, knowledge base, voice summary, connections, **guardrails — customize rule #1 and #8 to the domain**). Write `context/*`, `references/voice.md`, and the `connections.md` rows. Back up any existing versions to `archives/` first.
 
 ## Introduce the engine (one screen)
-Point the user at: `/structure` (frame fuzzy asks) · `/wiki` (second brain: `raw/` → `wiki/`) · `/workflow` (dynamic workflows) · `/experiment` (autoresearch loop) · `/audit` + `/level-up` (weekly). Then suggest the first prompt: *"what should I focus on this week?"*
+Point the user at: `/structure` (frame fuzzy asks) · `/triage` · `/daily` · `/weekly` (Cadence) · `/wiki` (second brain: `raw/` → `wiki/`) · `/graph` · `/graph-query` · `/graph-ingest` (knowledge graph) · `/workflow` (dynamic workflows) · `/experiment` (autoresearch loop) · `/audit` + `/level-up` (weekly). Then suggest the first prompt: *"what should I focus on this week?"*
+
+## Optional: knowledge graph (graphify)
+Offer to set up the knowledge graph so the user can *see* and query their code + second brain: run `python tools/graphify_setup.py install` (installs graphify and wires the Claude Code & Codex skills). Then `/graph` builds it. Skippable and additive — graphs **code + the committed `wiki/` only**, never `raw/`.
 
 ## Rules
 - Voice paste cannot be skipped or typed fresh.
