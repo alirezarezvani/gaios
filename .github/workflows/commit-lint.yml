@@ -1,0 +1,37 @@
+name: Commit Lint
+
+# Enforces Conventional Commits on the PR TITLE. Because auto-merge squashes (and the repo
+# is set so the squash commit title = PR title), this makes every commit on dev/main clean,
+# consistent, and professional. Required check: `commit-lint`.
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  commit-lint:
+    name: commit-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title (Conventional Commits)
+        uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            chore
+            ci
+            refactor
+            test
+            perf
+            build
+            revert
+          requireScope: false
+          subjectPattern: ^(?![A-Z]).+$
+          subjectPatternError: "The PR title subject should start lowercase, e.g. 'feat: add daily brief skill'."

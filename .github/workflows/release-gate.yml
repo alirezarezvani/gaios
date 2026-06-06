@@ -1,0 +1,32 @@
+name: Release Gate
+
+# Calibrated production checkpoint: a dev -> main (production) merge requires the deliberate
+# `ship-it` signal (label, or the `@claude ship` command which applies it). Enforced server-side
+# as the required `release-gate` check, so production can't merge on autopilot without intent.
+# Only runs for PRs into main; feature -> dev is unaffected (fully automatic).
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  release-gate:
+    name: release-gate
+    runs-on: ubuntu-latest
+    env:
+      LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+    steps:
+      - name: Require the ship-it signal for production
+        run: |
+          echo "Labels on this PR: ${LABELS:-<none>}"
+          case ",$LABELS," in
+            *,ship-it,*)
+              echo "ship-it present — production release approved." ;;
+            *)
+              echo "::error::Production merges into 'main' require the 'ship-it' label (apply it, or comment '@claude ship')."
+              exit 1 ;;
+          esac
