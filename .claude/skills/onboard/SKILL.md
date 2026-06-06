@@ -92,7 +92,7 @@ The Default Shift question seeds the Mindset framework before `/level-up` formal
 3. **One-shot scaffold.** After Step 2 ends, write Step 3 files in a single batch. No multi-turn confirmation. The user iterates by editing `aios-intake.md` and re-running.
 4. **Idempotent.** Re-running with an edited intake refreshes context files; backs up originals to `archives/intake-{ts}/`. Skips questions already answered unless the user wants to revise.
 5. **Closing screen is three lines.** Not a menu.
-6. **No extra skills generated.** Don't scaffold `/today`, `/draft`, `/connect`, etc. The kit ships 3 skills; the user authors more via `/level-up`.
+6. **No ad-hoc skills during onboarding.** Keep onboarding focused — don't scaffold new one-off skills mid-flow. The kit already ships a full set (`/structure`, `/triage`, `/daily`, `/weekly`, `/wiki`, `/graph`, `/draft`, `/prep`, `/decide`, `/workflow`, `/experiment`, …); new ones are authored deliberately via `/level-up` + `references/sops/authoring-skills.md`.
 7. **Read-only on `references/3ms-framework.md`.** It already ships in the kit. Don't overwrite.
 8. **No `.env` writes.** Don't ask for API keys on Day 1. Connections come Day 2.
 
